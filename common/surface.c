@@ -828,7 +828,7 @@ l_surface_getRawPixel(lua_State *L)
  *	(raw) byte string of pixel data (pixel format dependent)
  */
 static int
-l_surface_getPixels()
+l_surface_getPixels(lua_State *L)
 {
 	SDL_Surface *surf = commonGetAs(L, 1, SurfaceName, SDL_Surface *);
 	int size = surf->pitch * surf->h;

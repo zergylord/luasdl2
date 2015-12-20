@@ -8,7 +8,7 @@ source = {
 source = {
    -- when making a release rockspec, update fields in the above source
    -- block and delete this source block.
-   url = "git://github.com/Tangent128/luasdl2"
+   url = "git://github.com/zergylord/luasdl2"
 }
 description = {
    summary = "Lua-SDL2 is a pure C binding of SDL 2.0 for Lua 5.1, JIT, 5.2, and 5.3",
