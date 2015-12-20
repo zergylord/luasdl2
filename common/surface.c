@@ -832,8 +832,8 @@ l_surface_getPixels(lua_State *L)
 {
 	SDL_Surface *surf = commonGetAs(L, 1, SurfaceName, SDL_Surface *);
 	int size = surf->pitch * surf->h;
-	//Uint8 *ptr = surf->pixels;
-	lua_pushlstring(L, surf->pixels,size);
+	Uint8 *ptr = (Uint8 *)surf->pixels;
+	lua_pushlstring(L, ptr,size);
 	return 1;
 }
 
