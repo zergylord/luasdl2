@@ -821,6 +821,21 @@ l_surface_getRawPixel(lua_State *L)
 	lua_pushlstring(L, ptr, size);
 	return 1;
 }
+/*
+ * Surface:getPixels()
+ *
+ * Returns:
+ *	(raw) byte string of pixel data (pixel format dependent)
+ */
+static int
+l_surface_getPixels()
+{
+	SDL_Surface *surf = commonGetAs(L, 1, SurfaceName, SDL_Surface *);
+	int size = surf->pitch * surf->h;
+	//Uint8 *ptr = surf->pixels;
+	lua_pushlstring(L, surf->pixels,size);
+	return 1;
+}
 
 static const luaL_Reg methods[] = {
 	{ "blit",		l_surface_blit			},
@@ -836,6 +851,7 @@ static const luaL_Reg methods[] = {
 	{ "getColorMod",	l_surface_getColorMod		},
 	{ "getSize",		l_surface_getSize		},
 	{ "getRawPixel",        l_surface_getRawPixel		},
+	{ "getPixels",        l_surface_getPixels		},
 	{ "lock",		l_surface_lock			},
 	{ "lowerBlit",		l_surface_lowerBlit		},
 	{ "lowerBlitScaled",	l_surface_lowerBlitScaled	},
